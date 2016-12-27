@@ -23,7 +23,7 @@ class NKAnimationManager {
     }
 
     void onDraw(Canvas c) {
-        c.drawColor(surfaceView.getCanvasColor(), PorterDuff.Mode.CLEAR);
+        c.drawColor(surfaceView.getCanvasColor());
         for (NKAnimationBaseController anim : taskList) {
             anim.onDraw(c);
         }

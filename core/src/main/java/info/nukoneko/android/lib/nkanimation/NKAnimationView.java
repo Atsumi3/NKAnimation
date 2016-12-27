@@ -28,9 +28,7 @@ public final class NKAnimationView extends SurfaceView
         }
     }
 
-    @Override
-    public void setBackgroundColor(int color) {
-        super.setBackgroundColor(color);
+    public void setCanvasBackgroundColor(int color) {
         canvasColor = color;
     }
 
