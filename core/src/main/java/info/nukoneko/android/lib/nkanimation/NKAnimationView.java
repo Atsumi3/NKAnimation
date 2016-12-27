@@ -17,7 +17,7 @@ public final class NKAnimationView extends SurfaceView
         super(context);
         animManager = new NKAnimationManager(this);
         getHolder().addCallback(this);
-        super.setBackgroundColor(canvasColor);
+        this.setBackgroundColor(Color.TRANSPARENT);
     }
 
     @Override
