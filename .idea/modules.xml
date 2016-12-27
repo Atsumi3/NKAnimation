@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NKAnimation.iml" filepath="$PROJECT_DIR$/NKAnimation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nkanimation-core/nkanimation-core.iml" filepath="$PROJECT_DIR$/nkanimation-core/nkanimation-core.iml" />
     </modules>
   </component>
 </project>
