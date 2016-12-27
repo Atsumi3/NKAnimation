@@ -1,6 +1,8 @@
 package info.nukoneko.android.lib.nkanimation;
 
 import android.graphics.Canvas;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.view.MotionEvent;
 
 import java.util.ArrayList;
@@ -21,8 +23,8 @@ class NKAnimationManager {
     }
 
     void onDraw(Canvas c) {
-        final int[] argb = surfaceView.getARGB();
-        c.drawARGB(argb[0], argb[1], argb[2], argb[3]);
+        final int color = ((ColorDrawable) surfaceView.getBackground()).getColor();
+        c.drawColor(color, PorterDuff.Mode.CLEAR);
         for (NKAnimationBaseController anim : taskList) {
             anim.onDraw(c);
         }
