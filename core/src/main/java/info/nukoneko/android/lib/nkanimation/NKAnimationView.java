@@ -3,6 +3,7 @@ package info.nukoneko.android.lib.nkanimation;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -14,7 +15,15 @@ public final class NKAnimationView extends SurfaceView
     private Thread thread;
 
     public NKAnimationView(Context context) {
-        super(context);
+        this(context, null, 0);
+    }
+
+    public NKAnimationView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public NKAnimationView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         animManager = new NKAnimationManager(this);
         getHolder().addCallback(this);
         this.setBackgroundColor(Color.TRANSPARENT);
@@ -62,7 +71,6 @@ public final class NKAnimationView extends SurfaceView
     public boolean onTouchEvent(MotionEvent event) {
         return animManager.onTouchEvent(event);
     }
-
 
     final int getCanvasColor() {
         return canvasColor;
