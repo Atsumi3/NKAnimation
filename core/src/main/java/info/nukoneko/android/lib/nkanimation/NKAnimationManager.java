@@ -1,22 +1,21 @@
 package info.nukoneko.android.lib.nkanimation;
 
 import android.graphics.Canvas;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.view.MotionEvent;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 class NKAnimationManager {
     private final NKAnimationView surfaceView;
-    private ArrayList<NKAnimationBaseController> taskList = new ArrayList<>();
+    private LinkedList<NKAnimationBaseController> controllers = new LinkedList<>();
 
     NKAnimationManager(NKAnimationView surfaceView) {
         this.surfaceView = surfaceView;
     }
 
     boolean onTouchEvent(MotionEvent event) {
-        for (NKAnimationBaseController anim : taskList) {
+        final LinkedList<NKAnimationBaseController> _controllers = controllers;
+        for (NKAnimationBaseController anim : _controllers) {
             anim.onTouchEvent(event);
         }
         return true;
@@ -24,19 +23,21 @@ class NKAnimationManager {
 
     void onDraw(Canvas c) {
         c.drawColor(surfaceView.getCanvasColor());
-        for (NKAnimationBaseController anim : taskList) {
+        final LinkedList<NKAnimationBaseController> _controllers = controllers;
+        for (NKAnimationBaseController anim : _controllers) {
             anim.onDraw(c);
         }
     }
 
     void onUpdate() {
-        for (NKAnimationBaseController anim : taskList) {
-            if (anim.isDismiss()) this.taskList.remove(anim);
+        final LinkedList<NKAnimationBaseController> _controllers = controllers;
+        for (NKAnimationBaseController anim : _controllers) {
+            if (anim.isDismiss()) this.controllers.remove(anim);
             else anim.onUpdate();
         }
     }
 
     <T extends NKAnimationBaseController> void addController(T controller) {
-        taskList.add(controller);
+        controllers.add(controller);
     }
 }

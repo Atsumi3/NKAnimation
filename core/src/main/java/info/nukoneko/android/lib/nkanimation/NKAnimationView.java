@@ -42,18 +42,18 @@ public final class NKAnimationView extends SurfaceView
     }
 
     @Override
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+    public void surfaceCreated(SurfaceHolder holder) {
         this.thread = new Thread(this);
         this.thread.start();
     }
 
     @Override
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
     }
 
     @Override
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+    public void surfaceDestroyed(SurfaceHolder holder) {
         this.thread = null;
     }
 

@@ -30,7 +30,7 @@ public abstract class NKAnimationBaseController {
         dismissFlag = true;
     }
 
-    final protected boolean isDismiss() {
+    final boolean isDismiss() {
         return dismissFlag;
     }
 }
