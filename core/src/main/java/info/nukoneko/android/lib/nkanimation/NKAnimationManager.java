@@ -1,8 +1,6 @@
 package info.nukoneko.android.lib.nkanimation;
 
 import android.graphics.Canvas;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
 import android.view.MotionEvent;
 
 import java.util.ArrayList;
